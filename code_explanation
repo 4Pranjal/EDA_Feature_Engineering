@@ -1,0 +1,40 @@
+**Black Friday Dataset EDA and Feature Engineering **
+
+Problem Statement
+A retail company “ABC Private Limited” wants to understand the customer purchase behaviour (specifically, purchase amount) against various products of different categories. They have shared purchase summary of various customers for selected high volume products from last month. The data set also contains customer demographics (age, gender, marital status, city_type, stay_in_current_city), product details (product_id and product category) and Total purchase_amount from last month.
+
+Now, they want to build a model to predict the purchase amount of customer against various products which will help them to create personalized offer for customers against different products.
+
+This code presents a comprehensive analysis of the Black Friday dataset using Exploratory Data Analysis (EDA) techniques and feature engineering. The goal is to understand the data's structure, handle missing values, preprocess categorical features, and prepare the dataset for model training.
+
+**1. Dataset Overview:**
+The initial step involved importing the provided Black Friday dataset. The dataset was divided into training and test subsets. The merged dataset comprises both subsets for analysis.
+
+**2. Basic Dataset Information:**
+A preliminary analysis of the dataset was conducted using `info()` and `describe()` functions. These provided insights into the data types, missing values, and basic statistics of the numerical features.
+
+**3. Data Cleaning:**
+- The 'User_ID' column, which was not relevant for analysis, was dropped from the dataset.
+- The 'Gender' categorical feature was encoded into numerical values using one-hot encoding and mapped to binary values for easier processing.
+
+**4. Handling Categorical Features:**
+- The 'Age' categorical feature was mapped to numerical values using predefined age groups. Alternatively, label encoding from the `LabelEncoder` module was employed for the same purpose.
+- The 'City_Category' categorical feature was handled by generating dummy variables using one-hot encoding, resulting in separate columns for each category.
+
+**5. Handling Missing Values:**
+- The presence of missing values was investigated using the `isnull()` function, revealing missing values in 'Product_Category_2' and 'Product_Category_3'.
+- The missing values in 'Product_Category_2' and 'Product_Category_3' were replaced with their respective modes to ensure that no crucial information was lost.
+
+**6. Data Visualization:**
+- Visualizations were created to understand the relationships between various features and the target variable 'Purchase':
+  - The relationship between 'Age' and 'Purchase' was depicted using a bar plot, showing the difference in purchasing behavior between genders.
+  - The impact of 'Occupation' on 'Purchase' was visualized using a bar plot with 'Gender' distinction.
+  - Bar plots for 'Product_Category_1', 'Product_Category_2', and 'Product_Category_3' against 'Purchase' revealed insights into purchase patterns.
+
+**7. Feature Scaling:**
+- The dataset was split into training and testing subsets for model training using `train_test_split()`.
+- The 'Product_ID' column was dropped, as it was not relevant for prediction purposes.
+- Feature scaling was performed using `StandardScaler` to standardize the numerical features, ensuring consistent scales for model training.
+
+**8. Conclusion:**
+This report highlights the key steps taken to perform Exploratory Data Analysis (EDA) and feature engineering on the Black Friday dataset. By cleaning the data, handling categorical features, addressing missing values, and scaling the features, the dataset is now well-prepared for model training. Further analysis, modeling, and evaluation can now be conducted to build predictive models for understanding purchase behavior during Black Friday sales.
